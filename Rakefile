@@ -15,13 +15,14 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "boundary"
-  gem.homepage = "http://github.com/90cd6635a3cbcc46b592/boundary"
+  gem.homepage = "http://github.com/laknath/boundary"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A scope helper for multi-tenant apps}
+  gem.description = %Q{This gem is intended to provide a set of helpers to scope queries under a fixed parameter determined at the run time (ie: subdomain).}
   gem.email = "blaknath@gmail.com"
   gem.authors = ["Laknath"]
-  # dependencies defined in Gemfile
+  gem.add_dependency "activerecord", '>= 3.0.0'
+  gem.add_dependency "actionpack", '>= 3.0.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 

@@ -1,6 +1,6 @@
-= boundary
+= Boundary
 
-Description goes here.
+Introduces a thin wrapper to scope queries based on a fixed external parameter. Primary use case is to scope multi tenant apps based on the subdomain or some other attribute of the user.
 
 == Contributing to boundary
  
