@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "boundary.gemspec",
     "lib/boundary.rb",
     "lib/boundary/controller.rb",
     "lib/boundary/model.rb",
