@@ -27,7 +27,7 @@ module Boundary
     def use_scope_in(model, *args, &block)
       options = args.extract_options!
       
-      model_name  = model.to_s.camelize
+      model_name  = model.to_s.classify
       options[:to]      ||= :company
       options[:using]   ||= "current_#{options[:to]}"
 
