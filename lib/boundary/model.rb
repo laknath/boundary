@@ -18,7 +18,7 @@ module Boundary
       # Ex: Transaction.joins(:subscription => {:subscription_plan => :company}).where(:subscription_plans => {:company_id => 6})
       self.class_eval <<-"end_eval", __FILE__, __LINE__
           def self.scoped_by_#{scope}(foreign_id, *args)
-            self.joins(#{options[:scope_trail]}).where(:#{options[:source_table]} => {:#{options[:foreign_id]} => foreign_id}).scoping do
+            self.joins(#{options[:scope_trail].inspect}).where(:#{options[:source_table]} => {:#{options[:foreign_id]} => foreign_id}).readonly(false).scoping do
               yield if block_given?
             end
           end
@@ -40,6 +40,8 @@ module Boundary
       flatten.call(hash)
     end
 
+    # Find teh source table used to scope against
+    # Ex: '...WHERE accounts.company_id = 1'
     def source_table(scope_trail)
       (source_table = flatten_hash(scope_trail).last || self.name) && source_table.tableize
     end
